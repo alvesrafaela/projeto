@@ -13,5 +13,6 @@ namespace ProjetoTeste.Domain.Repositories
         Task<Cliente> Salvar(Cliente cliente);
         Task<Cliente> Editar(Cliente cliente);
         Task Excluir(int idCliente);
+        Task<Cliente> ObterClienteCPF(string numCpf);
     }
 }

@@ -44,5 +44,19 @@ namespace ProjetoTeste.Controllers
             await _clienteService.Excluir(idCliente);
             return Ok();
         }
+
+        [HttpPost()]
+        public async Task<ActionResult<Cliente>> SalvarCliente([FromBody] Cliente novoCliente) 
+        {
+            var clienteSalvo = await _clienteService.ObterClienteCPF(novoCliente.CPF);
+
+            if (clienteSalvo != null) 
+            {
+                return BadRequest("Já existe um cliente cadastrado com este CNPJ.");
+            }
+
+            var cliente = await _clienteService.Salvar(novoCliente);
+            return Ok(cliente);
+        }                     
     }
 }

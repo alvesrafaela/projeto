@@ -20,7 +20,7 @@ namespace ProjetoTeste.Services
 
         public Task<Cliente> Editar(int idCliente, Cliente cliente)
         {
-            throw new NotImplementedException();
+            return await _repository.Editar(cliente);
         }
 
         public async Task Excluir(int idCliente)
@@ -40,7 +40,12 @@ namespace ProjetoTeste.Services
 
         public Task<Cliente> Salvar(Cliente cliente)
         {
-            throw new NotImplementedException();
+           return await _repository.Salvar(cliente);
+        }
+
+         public async Task<Cliente> ObterClienteCPF(string numCpf)
+        {
+            return await _repository.ObterClienteCPF(numCpf);
         }
     }
 }
